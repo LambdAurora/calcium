@@ -1,0 +1,20 @@
+plugins {
+    id 'calcium.java-common-conventions'
+}
+
+archivesBaseName = 'calcium-core'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13'
+}
+
+test {
+    useJUnit()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}

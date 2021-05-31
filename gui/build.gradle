@@ -1,0 +1,24 @@
+plugins {
+    id 'calcium.java-common-conventions'
+    id 'application'
+}
+
+archivesBaseName = 'calcium-gui'
+def guiMainClass = 'dev.lambdaurora.calcium.gui.Main'
+
+dependencies {
+    implementation project(':core')
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': guiMainClass
+        )
+    }
+}
+
+application {
+    it.mainClass = guiMainClass
+    executableDir = 'run'
+}

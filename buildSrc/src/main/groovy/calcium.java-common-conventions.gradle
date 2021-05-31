@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.cadixdev.licenser'
+}
+
+def targetJavaVersion = 16
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc).configureEach {
+    it.options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+license {
+    header file(new File(project.getRootDir(), "HEADER"))
+    include '**/*.java'
+}

@@ -1,0 +1,4 @@
+allprojects {
+    group = 'dev.lambdaurora'
+    version = '1.0.0'
+}
